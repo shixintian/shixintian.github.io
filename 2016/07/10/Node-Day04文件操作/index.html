@@ -6,14 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>史心甜的个人博客</title>
+  <title>Node_Day04文件操作 | 史心甜的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="史心甜的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="文件操作Node.js文件操作模块fs参考文档
+文件操作常用API
+fs.writeFile(file, data, callback)：文件写入
+fs.appendFile(file, data, callback)：文件追加
+fs.readFile(file[, options], callback)：文件读取
+fs.unlink(path, callback)：删除文件
+fs.stat(pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node_Day04文件操作">
+<meta property="og:url" content="http://yoursite.com/2016/07/10/Node-Day04文件操作/index.html">
 <meta property="og:site_name" content="史心甜的个人博客">
+<meta property="og:description" content="文件操作Node.js文件操作模块fs参考文档
+文件操作常用API
+fs.writeFile(file, data, callback)：文件写入
+fs.appendFile(file, data, callback)：文件追加
+fs.readFile(file[, options], callback)：文件读取
+fs.unlink(path, callback)：删除文件
+fs.stat(pa">
+<meta property="og:updated_time" content="2016-11-10T15:18:51.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="史心甜的个人博客">
+<meta name="twitter:title" content="Node_Day04文件操作">
+<meta name="twitter:description" content="文件操作Node.js文件操作模块fs参考文档
+文件操作常用API
+fs.writeFile(file, data, callback)：文件写入
+fs.appendFile(file, data, callback)：文件追加
+fs.readFile(file[, options], callback)：文件读取
+fs.unlink(path, callback)：删除文件
+fs.stat(pa">
   
     <link rel="alternative" href="/atom.xml" title="史心甜的个人博客" type="application/atom+xml">
   
@@ -141,9 +163,7 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-    <article id="post-测试博客" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Node-Day04文件操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -152,105 +172,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/测试博客/">测试博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="修改icon图"><a href="#修改icon图" class="headerlink" title="修改icon图"></a>修改icon图</h2><h2 id="添加logo"><a href="#添加logo" class="headerlink" title="添加logo"></a>添加logo</h2><h2 id="将链接指向正确位置"><a href="#将链接指向正确位置" class="headerlink" title="将链接指向正确位置"></a>将链接指向正确位置</h2>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/08/测试博客/" class="archive-article-date">
-  	<time datetime="2016-11-08T13:12:24.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/08/hello-world/" class="archive-article-date">
-  	<time datetime="2016-11-08T11:52:20.154Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Node-Day04文件操作" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/10/Node-Day04文件操作/">Node_Day04文件操作</a>
+    <h1 class="article-title" itemprop="name">
+      Node_Day04文件操作
     </h1>
   
 
@@ -371,17 +294,48 @@
   </div>
 </article>
 
-
-
-
-
-
-
-
-
-
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/08/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
   
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -403,8 +357,8 @@
 		fancybox: true,
 		mathjax: false,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
