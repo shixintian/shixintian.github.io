@@ -29,7 +29,7 @@
 
 划分哪些资源公共开放用户可以随便访问；定义pathname.starts">
 <meta property="og:image" content="http://yoursite.com/img/node的url模块用法.png">
-<meta property="og:updated_time" content="2016-11-11T17:22:53.185Z">
+<meta property="og:updated_time" content="2016-11-12T01:20:21.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node_Day09 我的相册 (1)">
 <meta name="twitter:description" content="1.项目需求分析项目初始化
@@ -245,10 +245,11 @@
 <h2 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h2><p>1.node模块url<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 该方法，会将一个完整的 url 路径解析为一个对象，方便我们取各个部分的数据</div><div class="line">// 指定第二个参数，parse 方法的query属性会将查询字符串解析为一个对象挂载给返回结果的 query 属性</div><div class="line">const url = require(&apos;url&apos;)</div><div class="line">const urlObj = url.parse(&apos;./index.html?username=xxx&amp;password=xxx&apos;, true)</div><div class="line">const pathname = urlObj.pathname // 拿到请求路径，不包含查询字符串(?后面的内容)</div><div class="line">const queryObj = urlObj.query // 拿到通过 url.parse 方法解析出来的查询字符串（已经自动转为对象了）</div></pre></td></tr></table></figure></p>
 <p> 有无第二个参数（true）的执行结果：</p>
 <p>  <img src="img/node的url模块用法.png" alt="node的url模块用法"></p>
-<p>2.关于mime</p>
+<p>2.</p>
+<p>3.关于mime</p>
 <p>  <a href="https://www.npmjs.com/package/mime" target="_blank" rel="external">https://www.npmjs.com/package/mime</a><br>  A comprehensive library for mime-type mapping</p>
 <p>   mime.lookup(path)方法可以辅助设置”Content-Type:”<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var mime = require(&apos;mime&apos;);</div><div class="line"></div><div class="line">mime.lookup(&apos;/path/to/file.txt&apos;);         // =&gt; &apos;text/plain&apos; </div><div class="line">mime.lookup(&apos;file.txt&apos;);                  // =&gt; &apos;text/plain&apos; </div><div class="line">mime.lookup(&apos;.TXT&apos;);                      // =&gt; &apos;text/plain&apos; </div><div class="line">mime.lookup(&apos;htm&apos;);                       // =&gt; &apos;text/html&apos;</div></pre></td></tr></table></figure></p>
-<p>3.关于nodemon</p>
+<p>4.关于nodemon</p>
 <p> <a href="https://www.npmjs.com/package/nodemon" target="_blank" rel="external">https://www.npmjs.com/package/nodemon</a><br> Simple monitor script for use during development of a node.js app.<br> 开启服务器的node.js文件一旦保存一下，服务器自动重启<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nodemon ./server.js localhost 8080</div></pre></td></tr></table></figure></p>
 
       
