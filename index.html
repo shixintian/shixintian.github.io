@@ -334,6 +334,82 @@ node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
 
 
   
+    <article id="post-Node中操作文件的路径问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/Node中操作文件的路径问题/">Node中操作文件的路径问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="操作文件的路径使用注意事项："><a href="#操作文件的路径使用注意事项：" class="headerlink" title="操作文件的路径使用注意事项："></a>操作文件的路径使用注意事项：</h3><pre><code>1. 如果是以 / 开头的路径，则就是去执行当前脚本所属的磁盘根路径去找
+2. 如果是以 C:/dev/nvm/settings.txt ，则直接去找该绝对路径
+3. 如果是以 ./ 或者 ../ 开头的，则是相对于执行 node 命令的时候所处的路径
+   所以说，如果是操作相对路径的文件，最好把相对路径转为绝对路径
+   但是绝对路径又不能写死
+   可以使用每一个文件模块中都提供了两个属性：__dirname 和 __filename
+   __dirname 用来获取当前文件模块所属目录的绝对路径
+   __filename 用来获取当前文件的绝对路径，这个属性用的比较少
+
+   例如：我在桌面创建一个code文件夹，文件夹里面有 `02_文件路径.js` 和 `READEME.md` 文件
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(__dirname) // =&gt; C:\Users\iroc\Desktop\code</div><div class="line">console.log(__filename) // =&gt; C:\Users\iroc\Desktop\code\02_文件路径.js</div></pre></td></tr></table></figure>
+
+   node命令所处目录不同，找文件的路径也不同：
+   例如：
+   在02_文件路径.js中
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fs.readFile(&apos;./README.md&apos;, &apos;utf8&apos;, (err, data) =&gt; &#123;</div><div class="line">if (err) &#123;</div><div class="line">  throw err</div><div class="line">&#125;</div><div class="line">  console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+
+   当在以下两个位置执行node命令时：
+   -  
+    + node命令 ===&gt;  C:\Users\iroc\Desktop&gt; node code\02_文件路径.js
+    + 实际找文件的位置===&gt; &apos;C:\Users\iroc\Desktop\README.md
+   - 
+    + node命令 ===&gt;  C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
+    + 实际找文件的位置===&gt;    C:\Users\iroc\README.md
+
+   想要解决上面的问题,就用绝对定位,确定绝对定位,可以利用两个属性，每一个模块中都提供了两个属性：__dirname 和 __filename
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fs.readFile(path.join(__dirname, &apos;README.md&apos;), &apos;utf8&apos;, (err, data) =&gt; &#123;</div><div class="line">  if (err) &#123;</div><div class="line">      throw err</div><div class="line">  &#125;</div><div class="line">    console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+4. 注意：加载自己写的 `相对路径模块` 不受执行 node 命令所处目录影响(例如，我在code里面写了03_文件路径.js，则它不受 node 命令所处目录)
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/11/Node中操作文件的路径问题/" class="archive-article-date">
+  	<time datetime="2016-07-11T10:18:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-11</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-在 Express 中使用 ejs 模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

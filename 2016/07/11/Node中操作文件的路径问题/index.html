@@ -6,33 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>在 Express 中使用 ejs 模板引擎 | Tiffany&#39;s Blog</title>
+  <title>Node中操作文件的路径问题 | Tiffany&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在 Express 中使用 ejs 模板引擎安装：
-1$ npm install --save ejs
-配置：
-12app.set(&apos;views&apos;, &apos;视图模板文件存放路径&apos;)app.set(&apos;view engine&apos;, &apos;安装的模板引擎的名称，例如：ejs&apos;)
-如果使用上面的配置，则视图的后缀名必须为 .ejs，如果想要修改视图的后缀名，可以使用下面的配置形式
-123app.set(&apos;views">
+  <meta name="description" content="操作文件的路径使用注意事项：1. 如果是以 / 开头的路径，则就是去执行当前脚本所属的磁盘根路径去找
+2. 如果是以 C:/dev/nvm/settings.txt ，则直接去找该绝对路径
+3. 如果是以 ./ 或者 ../ 开头的，则是相对于执行 node 命令的时候所处的路径
+   所以说，如果是操作相对路径的文件，最好把相对路径转为绝对路径
+   但是绝对路径又不能写死
+   可以使用每一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 Express 中使用 ejs 模板引擎">
-<meta property="og:url" content="http://yoursite.com/2016/07/10/在 Express 中使用 ejs 模板引擎/index.html">
+<meta property="og:title" content="Node中操作文件的路径问题">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/Node中操作文件的路径问题/index.html">
 <meta property="og:site_name" content="Tiffany's Blog">
-<meta property="og:description" content="在 Express 中使用 ejs 模板引擎安装：
-1$ npm install --save ejs
-配置：
-12app.set(&apos;views&apos;, &apos;视图模板文件存放路径&apos;)app.set(&apos;view engine&apos;, &apos;安装的模板引擎的名称，例如：ejs&apos;)
-如果使用上面的配置，则视图的后缀名必须为 .ejs，如果想要修改视图的后缀名，可以使用下面的配置形式
-123app.set(&apos;views">
-<meta property="og:updated_time" content="2016-11-19T10:05:10.265Z">
+<meta property="og:description" content="操作文件的路径使用注意事项：1. 如果是以 / 开头的路径，则就是去执行当前脚本所属的磁盘根路径去找
+2. 如果是以 C:/dev/nvm/settings.txt ，则直接去找该绝对路径
+3. 如果是以 ./ 或者 ../ 开头的，则是相对于执行 node 命令的时候所处的路径
+   所以说，如果是操作相对路径的文件，最好把相对路径转为绝对路径
+   但是绝对路径又不能写死
+   可以使用每一个">
+<meta property="og:updated_time" content="2016-11-19T10:45:08.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在 Express 中使用 ejs 模板引擎">
-<meta name="twitter:description" content="在 Express 中使用 ejs 模板引擎安装：
-1$ npm install --save ejs
-配置：
-12app.set(&apos;views&apos;, &apos;视图模板文件存放路径&apos;)app.set(&apos;view engine&apos;, &apos;安装的模板引擎的名称，例如：ejs&apos;)
-如果使用上面的配置，则视图的后缀名必须为 .ejs，如果想要修改视图的后缀名，可以使用下面的配置形式
-123app.set(&apos;views">
+<meta name="twitter:title" content="Node中操作文件的路径问题">
+<meta name="twitter:description" content="操作文件的路径使用注意事项：1. 如果是以 / 开头的路径，则就是去执行当前脚本所属的磁盘根路径去找
+2. 如果是以 C:/dev/nvm/settings.txt ，则直接去找该绝对路径
+3. 如果是以 ./ 或者 ../ 开头的，则是相对于执行 node 命令的时候所处的路径
+   所以说，如果是操作相对路径的文件，最好把相对路径转为绝对路径
+   但是绝对路径又不能写死
+   可以使用每一个">
   
     <link rel="alternative" href="/atom.xml" title="Tiffany&#39;s Blog" type="application/atom+xml">
   
@@ -160,7 +160,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-在 Express 中使用 ejs 模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Node中操作文件的路径问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -170,7 +170,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      在 Express 中使用 ejs 模板引擎
+      Node中操作文件的路径问题
     </h1>
   
 
@@ -178,27 +178,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在-Express-中使用-ejs-模板引擎"><a href="#在-Express-中使用-ejs-模板引擎" class="headerlink" title="在 Express 中使用 ejs 模板引擎"></a>在 Express 中使用 ejs 模板引擎</h2><p>安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save ejs</div></pre></td></tr></table></figure>
-<p>配置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'views'</span>, <span class="string">'视图模板文件存放路径'</span>)</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'安装的模板引擎的名称，例如：ejs'</span>)</div></pre></td></tr></table></figure>
-<p>如果使用上面的配置，则视图的后缀名必须为 <code>.ejs</code>，如果想要修改视图的后缀名，可以使用下面的配置形式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'views'</span>, <span class="string">'视图模板文件存放路径'</span>)</div><div class="line">app.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express)</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>)</div></pre></td></tr></table></figure>
-<p>使用：</p>
-<p>只要你执行了上面两句代码：就可以直接在后面的请求处理函数中使用 <code>res.render(视图名称，要注入的数据对象)</code>，然后express会自动帮你去读取文件然后注入数据，解析替换，最后得到一个完整的 html 页面，然后发送给客户端。</p>
-<p>如 <code>views/index.html</code> 文件代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello <span class="tag">&lt;<span class="name">%=</span> <span class="attr">name</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><code>app.js</code> 文件代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</div><div class="line">  res.render(<span class="string">'index'</span>, &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'World'</span></div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>浏览器中看到的最终渲染结果如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+        <h3 id="操作文件的路径使用注意事项："><a href="#操作文件的路径使用注意事项：" class="headerlink" title="操作文件的路径使用注意事项："></a>操作文件的路径使用注意事项：</h3><pre><code>1. 如果是以 / 开头的路径，则就是去执行当前脚本所属的磁盘根路径去找
+2. 如果是以 C:/dev/nvm/settings.txt ，则直接去找该绝对路径
+3. 如果是以 ./ 或者 ../ 开头的，则是相对于执行 node 命令的时候所处的路径
+   所以说，如果是操作相对路径的文件，最好把相对路径转为绝对路径
+   但是绝对路径又不能写死
+   可以使用每一个文件模块中都提供了两个属性：__dirname 和 __filename
+   __dirname 用来获取当前文件模块所属目录的绝对路径
+   __filename 用来获取当前文件的绝对路径，这个属性用的比较少
 
+   例如：我在桌面创建一个code文件夹，文件夹里面有 `02_文件路径.js` 和 `READEME.md` 文件
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(__dirname) // =&gt; C:\Users\iroc\Desktop\code</div><div class="line">console.log(__filename) // =&gt; C:\Users\iroc\Desktop\code\02_文件路径.js</div></pre></td></tr></table></figure>
+
+   node命令所处目录不同，找文件的路径也不同：
+   例如：
+   在02_文件路径.js中
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fs.readFile(&apos;./README.md&apos;, &apos;utf8&apos;, (err, data) =&gt; &#123;</div><div class="line">if (err) &#123;</div><div class="line">  throw err</div><div class="line">&#125;</div><div class="line">  console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+
+   当在以下两个位置执行node命令时：
+   -  
+    + node命令 ===&gt;  C:\Users\iroc\Desktop&gt; node code\02_文件路径.js
+    + 实际找文件的位置===&gt; &apos;C:\Users\iroc\Desktop\README.md
+   - 
+    + node命令 ===&gt;  C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
+    + 实际找文件的位置===&gt;    C:\Users\iroc\README.md
+
+   想要解决上面的问题,就用绝对定位,确定绝对定位,可以利用两个属性，每一个模块中都提供了两个属性：__dirname 和 __filename
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fs.readFile(path.join(__dirname, &apos;README.md&apos;), &apos;utf8&apos;, (err, data) =&gt; &#123;</div><div class="line">  if (err) &#123;</div><div class="line">      throw err</div><div class="line">  &#125;</div><div class="line">    console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+4. 注意：加载自己写的 `相对路径模块` 不受执行 node 命令所处目录影响(例如，我在code里面写了03_文件路径.js，则它不受 node 命令所处目录)
+</code></pre>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/07/10/在 Express 中使用 ejs 模板引擎/" class="archive-article-date">
-  	<time datetime="2016-07-10T05:15:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-10</time>
+      <a href="/2016/07/11/Node中操作文件的路径问题/" class="archive-article-date">
+  	<time datetime="2016-07-11T10:18:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-11</time>
 </a>
       
       
@@ -211,18 +229,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/11/Node中操作文件的路径问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/14/文件操作的应用-我的相册(1)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Node中操作文件的路径问题
+          Node_Day09 我的相册 (1)
         
       </div>
     </a>
   
   
-    <a href="/2016/07/10/文件操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Node_Day04文件操作</div>
+    <a href="/2016/07/10/在 Express 中使用 ejs 模板引擎/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在 Express 中使用 ejs 模板引擎</div>
       <i class="icon-circle-right"></i>
     </a>
   
