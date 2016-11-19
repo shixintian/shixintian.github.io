@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Node_Day09 我的相册 (1) | 史心甜的个人博客</title>
+  <title>Node_Day09 我的相册 (1) | Tiffany&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.项目需求分析项目初始化
 把前端用到的静态资源（访问页面需要加载的资源，如css，img，script）放到 public 目录下
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node_Day09 我的相册 (1)">
 <meta property="og:url" content="http://yoursite.com/2016/07/14/Node_Day09 我的相册(1)/index.html">
-<meta property="og:site_name" content="史心甜的个人博客">
+<meta property="og:site_name" content="Tiffany's Blog">
 <meta property="og:description" content="1.项目需求分析项目初始化
 把前端用到的静态资源（访问页面需要加载的资源，如css，img，script）放到 public 目录下
 把所有的页面都放到 views 目录下
@@ -29,7 +29,7 @@
 
 划分哪些资源公共开放用户可以随便访问；定义pathname.starts">
 <meta property="og:image" content="http://yoursite.com/img/node的url模块用法.png">
-<meta property="og:updated_time" content="2016-11-12T01:20:21.217Z">
+<meta property="og:updated_time" content="2016-11-12T03:28:26.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node_Day09 我的相册 (1)">
 <meta name="twitter:description" content="1.项目需求分析项目初始化
@@ -42,7 +42,7 @@
 划分哪些资源公共开放用户可以随便访问；定义pathname.starts">
 <meta name="twitter:image" content="http://yoursite.com/img/node的url模块用法.png">
   
-    <link rel="alternative" href="/atom.xml" title="史心甜的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Tiffany&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -65,11 +65,11 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">史心甜</a></h1>
+		  <h1 class="header-author"><a href="/">Tiffany</a></h1>
 		</hgroup>
 
 		
-		<p class="header-subtitle">我就是我，不一样的烟火</p>
+		<p class="header-subtitle">The difference between ordinary and extraordinary is that little extra.</p>
 		
 
 		<nav class="header-menu">
@@ -126,7 +126,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"><i class="icon-list"></i></div>
-  		<h1 class="header-author js-mobile-header hide">史心甜</h1>
+  		<h1 class="header-author js-mobile-header hide">Tiffany</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -136,10 +136,10 @@
 				
 			</div>
 			<hgroup>
-			  <h1 class="header-author">史心甜</h1>
+			  <h1 class="header-author">Tiffany</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">我就是我，不一样的烟火</p>
+			<p class="header-subtitle">The difference between ordinary and extraordinary is that little extra.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -245,7 +245,36 @@
 <h2 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h2><p>1.node模块url<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 该方法，会将一个完整的 url 路径解析为一个对象，方便我们取各个部分的数据</div><div class="line">// 指定第二个参数，parse 方法的query属性会将查询字符串解析为一个对象挂载给返回结果的 query 属性</div><div class="line">const url = require(&apos;url&apos;)</div><div class="line">const urlObj = url.parse(&apos;./index.html?username=xxx&amp;password=xxx&apos;, true)</div><div class="line">const pathname = urlObj.pathname // 拿到请求路径，不包含查询字符串(?后面的内容)</div><div class="line">const queryObj = urlObj.query // 拿到通过 url.parse 方法解析出来的查询字符串（已经自动转为对象了）</div></pre></td></tr></table></figure></p>
 <p> 有无第二个参数（true）的执行结果：</p>
 <p>  <img src="img/node的url模块用法.png" alt="node的url模块用法"></p>
-<p>2.</p>
+<p>2.操作文件的路径</p>
+<pre><code>1. 如果是以 / 开头的路径，则就是去执行当前脚本所属的磁盘根路径去找
+2. 如果是以 C:/dev/nvm/settings.txt ，则直接去找该绝对路径
+3. 如果是以 ./ 或者 ../ 开头的，则是相对于执行 node 命令的时候所处的路径
+   所以说，如果是操作相对路径的文件，最好把相对路径转为绝对路径
+   但是绝对路径又不能写死
+   可以使用每一个文件模块中都提供了两个属性：__dirname 和 __filename
+   __dirname 用来获取当前文件模块所属目录的绝对路径
+   __filename 用来获取当前文件的绝对路径，这个属性用的比较少
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(__dirname) // =&gt; C:\Users\iroc\Desktop\code</div><div class="line">console.log(__filename) // =&gt; C:\Users\iroc\Desktop\code\02_文件路径.js</div></pre></td></tr></table></figure>
+
+4. 注意：加载自己写的相对路径模块不受执行 node 命令所处目录影响
+   也就是说，加载文件模块还是使用相对路径
+
+5.说明问题的代码演示
+fs.readFile(&apos;./README.md&apos;, &apos;utf8&apos;, (err, data) =&gt; {
+  if (err) {
+    throw err
+  }
+  console.log(data)
+}   
+node 执行：C:\Users\iroc\Desktop&gt; node code/02_文件路径.js
+     结果：该文件中的相对路径是去执行node命令的目录地方去找了 &apos;C:\Users\iroc\Desktop\README.md
+
+node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
+     结果：C:\Users\iroc\README.md
+想要解决上面的问题：
+   每一个模块中都提供了两个属性：__dirname 和 __filename
+</code></pre><p>fs.readFile(path.join(__dirname, ‘README.md’), ‘utf8’, (err, data) =&gt; {<br>  if (err) {<br>    throw err<br>  }<br>  console.log(data)<br>})</p>
+<p>// console.log(path.join(__dirname, ‘README.md’))</p>
 <p>3.关于mime</p>
 <p>  <a href="https://www.npmjs.com/package/mime" target="_blank" rel="external">https://www.npmjs.com/package/mime</a><br>  A comprehensive library for mime-type mapping</p>
 <p>   mime.lookup(path)方法可以辅助设置”Content-Type:”<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var mime = require(&apos;mime&apos;);</div><div class="line"></div><div class="line">mime.lookup(&apos;/path/to/file.txt&apos;);         // =&gt; &apos;text/plain&apos; </div><div class="line">mime.lookup(&apos;file.txt&apos;);                  // =&gt; &apos;text/plain&apos; </div><div class="line">mime.lookup(&apos;.TXT&apos;);                      // =&gt; &apos;text/plain&apos; </div><div class="line">mime.lookup(&apos;htm&apos;);                       // =&gt; &apos;text/html&apos;</div></pre></td></tr></table></figure></p>
@@ -321,7 +350,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 史心甜
+    		&copy; 2016 Tiffany
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
