@@ -143,6 +143,52 @@
       <div class="body-wrap">
         
   
+    <article id="post-Node中url.parse(url) 和 querystring.parse(str)的不同" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/19/Node中url.parse(url) 和 querystring.parse(str)的不同/">Node.js中 url.parse(url) 和 querystring.parse(str)的不同</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Node-js中-url-parse-url-和-querystring-parse-str-的不同"><a href="#Node-js中-url-parse-url-和-querystring-parse-str-的不同" class="headerlink" title="Node.js中 url.parse(url) 和 querystring.parse(str)的不同"></a>Node.js中 url.parse(url) 和 querystring.parse(str)的不同</h2><p>两种方式都包含了对查询字符串的解析，但仍然有所不同，如下简单的测试，可以清晰看见不同之处</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">const http = require(&apos;http&apos;)</div><div class="line">const url = require(&apos;url&apos;)</div><div class="line">const querystring = require(&apos;querystring&apos;)</div><div class="line"></div><div class="line">http.createServer()</div><div class="line">.on(&apos;request&apos;,(req,res) =&gt; &#123;</div><div class="line">//===== 输入请求地址  http://localhost:5000/public/index.html?usename=%E4%BD%A0%E5%A5%BD&amp;age=18   =======</div><div class="line"></div><div class="line">  // 1. req.url是 /后面所有的内容</div><div class="line">  console.log(req.url)//   /public/index.html?usename=%E4%BD%A0%E5%A5%BD&amp;age=18</div><div class="line"></div><div class="line">   // 2. url.parse(url,true)是对req.url进行解析,第二个参数为true可以将查询字符串转为对象  </div><div class="line">   console.log(url.parse(req.url,true))</div><div class="line">   //结果为：</div><div class="line">   //Url &#123;</div><div class="line">   //protocol: null,</div><div class="line">   //slashes: null,</div><div class="line">   //auth: null,</div><div class="line">   //host: null,</div><div class="line">   //port: null,</div><div class="line">   //hostname: null,</div><div class="line">   //hash: null,</div><div class="line">   //search: &apos;?username=haha&amp;password=123&amp;age=19&apos;,</div><div class="line">   //query: &#123; username: &apos;haha&apos;, password: &apos;123&apos;, age: &apos;19&apos; &#125;,</div><div class="line">   //pathname: &apos;/public&apos;,</div><div class="line">   //path: &apos;/public?username=haha&amp;password=123&amp;age=19&apos;,</div><div class="line">   //href: &apos;/public?username=haha&amp;password=123&amp;age=19&apos; &#125;</div><div class="line"></div><div class="line">   // 3. querystring.parse()单独对查询字符串进行解析，例如在普通表单post请求时，我们用到下面的方法</div><div class="line">   console.log(querystring.parse(&apos;username=haha&amp;password=123&amp;age=19&apos;))// &#123; username: &apos;haha&apos;, password: &apos;123&apos;, age: &apos;19&apos; &#125;</div><div class="line">   res.end()</div><div class="line"></div><div class="line">&#125;)</div><div class="line">.listen(3000,() =&gt;&#123;</div><div class="line">  console.log(&quot;the server is running at port 3000&quot;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/19/Node中url.parse(url) 和 querystring.parse(str)的不同/" class="archive-article-date">
+  	<time datetime="2016-11-19T11:27:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-19</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -196,6 +242,108 @@
 
 
   
+    <article id="post-Shell和vi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/Shell和vi/">Shell和vi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h2><p>在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。</p>
+<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><ol>
+<li>图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。</li>
+<li>命令行shell：通过键盘输入特定命令的方式，调用相应的应用程序，如windows系统的cmd.exe、Windows PowerShell，Linux系统的Bourne shell ( sh)、Bourne Again shell ( bash)等。</li>
+<li>认识bash这个shell<br>在window系统下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令。<br>各个 shell 的功能都差不多， Linux 默认使用 bash ，以下是bash的使用。</li>
+</ol>
+<p><code>3.1 bash命令格式</code><br>命令 [-options]  [参数]，如：tar  zxvf  demo.tar.gz<br>查看帮助：命令 –help</p>
+<p><code>3.2 bash常见命令</code></p>
+<ul>
+<li>pwd (Print Working Directory) 查看当前目录</li>
+<li>cd (Change Directory) 切换目录，如 cd /etc</li>
+<li>ls (List) 查看当前目录下内容，如 ls -al</li>
+<li>mkdir (Make Directory) 创建目录，如 mkdir blog</li>
+<li>touch 创建文件，如 touch index.html</li>
+<li>cat 查看文件全部内容，如 cat index.html</li>
+<li>more/less 查看文件，如more /etc/passwd、less /etc/passwd</li>
+<li>rm (remove) 删除文件，如 rm index.html、rm -rf  blog</li>
+<li>rmdir (Remove Directory) 删除文件夹，只能删除空文件夹，不常用</li>
+<li>mv (move) 移动文件或重命名，如 mv index.html ./demo/index.html</li>
+<li>cp (copy) 复制文件，cp index.html ./demo/index.html</li>
+<li>tab 自动补全，连按两次会将所有匹配内容显示出来</li>
+<li><blockquote>
+<p>和 &gt;&gt;重定向，如echo hello world! &gt; README.md，&gt;覆盖 &gt;&gt;追加</p>
+</blockquote>
+</li>
+<li>| 管道符可以将多个命令连接使用，上一次（命令）的执行结果当成下一次（命令）的参数。</li>
+<li>grep 匹配内容，一般结合管道符使用</li>
+</ul>
+<hr>
+<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><p>如同Windows下的记事本，vi编辑器是Linux下的标配，通过它我们可以创建、编辑文件。它是一个随系统一起安装的文本编辑软件。</p>
+<ol>
+<li><p>三种模式<br>vi编辑器提供了3种模式，分别是命令模式、插入模式、底行模式，每种模式下用户所能进行的操作是不一样的。<br>3种模式的切换如下图所示：<br><img src="./img/shell.png" alt="shell"><br>通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切回到命令模式（按ESC键）</p>
+</li>
+<li><p>使用vi编辑器</p>
+<ul>
+<li>a) 打开/创建文件， vi 文件路径</li>
+<li>b) 底行模式 :w保存，:w filenme另存为</li>
+<li>c) 底行模式 :q退出</li>
+<li>d) 底行模式 :wq保存并退出</li>
+<li>e) 底行模式 :e! 撤销更改，返回到上一次保存的状态</li>
+<li>f) 底行模式 :q! 不保存强制退出</li>
+<li>g) 底行模式 :set nu 设置行号</li>
+<li>h) 命令模式 ZZ（大写）保存并退出</li>
+<li>i) 命令模式 u辙销操作，可多次使用</li>
+<li>j) 命令模式 dd删除当前行</li>
+<li>k) 命令模式 yy复制当前行</li>
+<li>l) 命令模式 p 粘贴内容</li>
+<li>m) 命令模式 ctrl+f向前翻页</li>
+<li>n) 命令模式 ctrl+b向后翻页</li>
+<li>o) 命令模式 i进入编辑模式，当前光标处插入</li>
+<li>p) 命令模式 a进入编辑模式，当前光标后插入</li>
+<li>q) 命令模式 A进入编辑模式，光标移动到行尾</li>
+<li>r) 命令模式 o进入编辑模式，当前行下面插入新行</li>
+<li>s) 命令模式 O进入编辑模式，当前行上面插入新行</li>
+</ul>
+</li>
+</ol>
+<p>当处在编辑模式时，与Windows记事本的使用相似。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/08/02/Shell和vi/" class="archive-article-date">
+  	<time datetime="2016-08-02T05:37:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-02</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-文件操作的应用-我的相册(1)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,7 +354,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/文件操作的应用-我的相册(1)/">Node_Day09 我的相册 (1)</a>
+      <a class="article-title" href="/2016/07/14/文件操作的应用-我的相册(1)/">文件操作的应用-我的相册 (1)</a>
     </h1>
   
 
@@ -334,6 +482,51 @@ node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
 
 
   
+    <article id="post-关于url在浏览器和服务器中传输格式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/12/关于url在浏览器和服务器中传输格式/">关于url在浏览器和服务器中传输格式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##　关于url在浏览器和服务器中传输格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">const http = require(&apos;http&apos;)</div><div class="line">const url = require(&apos;url&apos;)</div><div class="line"></div><div class="line">http.createServer()</div><div class="line">    .on(&apos;request&apos;, (req, res) =&gt; &#123;</div><div class="line">        // 完整的url</div><div class="line">        // http://www.baidu.com:80/a/b/c?key=value&amp;key=value#xxx</div><div class="line">        // 协议://主机名:端口号/请求路径？查询字符串#内部标识</div><div class="line"></div><div class="line"></div><div class="line">        // 1. url 为/public/%E4%BD%A0%E5%A5%BD.html?username=%22%E4%B8%BD%E4%B8%BD%22&amp;age=20</div><div class="line">        console.log(req.url) //  /public/%E4%BD%A0%E5%A5%BD.html?username=%22%E4%B8%BD%E4%B8%BD%22&amp;age=20</div><div class="line">        console.log(decodeURI(req.url)) //  /public/你好.html?username=&quot;丽丽&quot;&amp;age=20</div><div class="line">        console.log(url.parse(req.url, true).query.username) //&quot;丽丽&quot;，url.parse() 已经做了编码转换，即进行了decodeURI()</div><div class="line">        res.end()</div><div class="line"></div><div class="line">        // 2. url 为  /public/你好.html?username=&quot;丽丽&quot;&amp;age=20</div><div class="line">        // console.log(req.url) //  /public/%E4%BD%A0%E5%A5%BD.html?username=%22%E4%B8%BD%E4%B8%BD%22&amp;age=20</div><div class="line">        // console.log(decodeURI(req.url))  // /public/你好.html?username=&quot;丽丽&quot;&amp;age=20</div><div class="line">        // console.log(url.parse(req.url,true).query.username)  // &quot;丽丽&quot;，url.parse() 已经做了编码转换，即进行了decodeURI()</div><div class="line">        // res.end()</div><div class="line"></div><div class="line">        // 3.在重定向中，Location不支持中文，如果有中文，要用encodeURI(url)进行转换，如服务器端</div><div class="line">        // 收到的请求信息就是情况1</div><div class="line">        // res.writeHead(302,&#123;</div><div class="line">        //  &apos;Location&apos;:&apos;/public/%E4%BD%A0%E5%A5%BD.html?username=%22%E4%B8%BD%E4%B8%BD%22&amp;age=20&apos;</div><div class="line">        // &#125;)</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">    .listen(3000, () =&gt; &#123;</div><div class="line">        console.log(&quot;the server is running at port 3000&quot;)</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/12/关于url在浏览器和服务器中传输格式/" class="archive-article-date">
+  	<time datetime="2016-07-12T12:27:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-12</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Node中操作文件的路径问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -410,64 +603,6 @@ node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
 
 
   
-    <article id="post-在 Express 中使用 ejs 模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/10/在 Express 中使用 ejs 模板引擎/">在 Express 中使用 ejs 模板引擎</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="在-Express-中使用-ejs-模板引擎"><a href="#在-Express-中使用-ejs-模板引擎" class="headerlink" title="在 Express 中使用 ejs 模板引擎"></a>在 Express 中使用 ejs 模板引擎</h2><p>安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save ejs</div></pre></td></tr></table></figure>
-<p>配置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'views'</span>, <span class="string">'视图模板文件存放路径'</span>)</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'安装的模板引擎的名称，例如：ejs'</span>)</div></pre></td></tr></table></figure>
-<p>如果使用上面的配置，则视图的后缀名必须为 <code>.ejs</code>，如果想要修改视图的后缀名，可以使用下面的配置形式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'views'</span>, <span class="string">'视图模板文件存放路径'</span>)</div><div class="line">app.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express)</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>)</div></pre></td></tr></table></figure>
-<p>使用：</p>
-<p>只要你执行了上面两句代码：就可以直接在后面的请求处理函数中使用 <code>res.render(视图名称，要注入的数据对象)</code>，然后express会自动帮你去读取文件然后注入数据，解析替换，最后得到一个完整的 html 页面，然后发送给客户端。</p>
-<p>如 <code>views/index.html</code> 文件代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello <span class="tag">&lt;<span class="name">%=</span> <span class="attr">name</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><code>app.js</code> 文件代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</div><div class="line">  res.render(<span class="string">'index'</span>, &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'World'</span></div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>浏览器中看到的最终渲染结果如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/10/在 Express 中使用 ejs 模板引擎/" class="archive-article-date">
-  	<time datetime="2016-07-10T05:15:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-10</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-文件操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -478,7 +613,7 @@ node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/10/文件操作/">Node_Day04文件操作</a>
+      <a class="article-title" href="/2016/07/10/文件操作/">文件操作</a>
     </h1>
   
 
@@ -575,6 +710,64 @@ node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
     <div class="article-info article-info-index">
       
       <a href="/2016/07/10/文件操作/" class="archive-article-date">
+  	<time datetime="2016-07-10T05:15:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-10</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-在 Express 中使用 ejs 模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/10/在 Express 中使用 ejs 模板引擎/">在 Express 中使用 ejs 模板引擎</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="在-Express-中使用-ejs-模板引擎"><a href="#在-Express-中使用-ejs-模板引擎" class="headerlink" title="在 Express 中使用 ejs 模板引擎"></a>在 Express 中使用 ejs 模板引擎</h2><p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save ejs</div></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'views'</span>, <span class="string">'视图模板文件存放路径'</span>)</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'安装的模板引擎的名称，例如：ejs'</span>)</div></pre></td></tr></table></figure>
+<p>如果使用上面的配置，则视图的后缀名必须为 <code>.ejs</code>，如果想要修改视图的后缀名，可以使用下面的配置形式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'views'</span>, <span class="string">'视图模板文件存放路径'</span>)</div><div class="line">app.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express)</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>)</div></pre></td></tr></table></figure>
+<p>使用：</p>
+<p>只要你执行了上面两句代码：就可以直接在后面的请求处理函数中使用 <code>res.render(视图名称，要注入的数据对象)</code>，然后express会自动帮你去读取文件然后注入数据，解析替换，最后得到一个完整的 html 页面，然后发送给客户端。</p>
+<p>如 <code>views/index.html</code> 文件代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello <span class="tag">&lt;<span class="name">%=</span> <span class="attr">name</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>app.js</code> 文件代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</div><div class="line">  res.render(<span class="string">'index'</span>, &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'World'</span></div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>浏览器中看到的最终渲染结果如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/10/在 Express 中使用 ejs 模板引擎/" class="archive-article-date">
   	<time datetime="2016-07-10T05:15:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-10</time>
 </a>
       

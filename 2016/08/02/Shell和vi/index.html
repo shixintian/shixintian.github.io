@@ -6,14 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016/7 | Tiffany&#39;s Blog</title>
+  <title>Shell和vi | Tiffany&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tiffany's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/07/index.html">
+  <meta name="description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
+shell分类
+图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
+命令行s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell和vi">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/Shell和vi/index.html">
 <meta property="og:site_name" content="Tiffany's Blog">
+<meta property="og:description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
+shell分类
+图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
+命令行s">
+<meta property="og:image" content="http://yoursite.com/./img/shell.png">
+<meta property="og:updated_time" content="2016-11-27T06:00:35.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tiffany's Blog">
+<meta name="twitter:title" content="Shell和vi">
+<meta name="twitter:description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
+shell分类
+图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
+命令行s">
+<meta name="twitter:image" content="http://yoursite.com/./img/shell.png">
   
     <link rel="alternative" href="/atom.xml" title="Tiffany&#39;s Blog" type="application/atom+xml">
   
@@ -141,184 +156,145 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Shell和vi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      Shell和vi
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h2><p>在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。</p>
+<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><ol>
+<li>图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。</li>
+<li>命令行shell：通过键盘输入特定命令的方式，调用相应的应用程序，如windows系统的cmd.exe、Windows PowerShell，Linux系统的Bourne shell ( sh)、Bourne Again shell ( bash)等。</li>
+<li>认识bash这个shell<br>在window系统下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令。<br>各个 shell 的功能都差不多， Linux 默认使用 bash ，以下是bash的使用。</li>
+</ol>
+<p><code>3.1 bash命令格式</code><br>命令 [-options]  [参数]，如：tar  zxvf  demo.tar.gz<br>查看帮助：命令 –help</p>
+<p><code>3.2 bash常见命令</code></p>
+<ul>
+<li>pwd (Print Working Directory) 查看当前目录</li>
+<li>cd (Change Directory) 切换目录，如 cd /etc</li>
+<li>ls (List) 查看当前目录下内容，如 ls -al</li>
+<li>mkdir (Make Directory) 创建目录，如 mkdir blog</li>
+<li>touch 创建文件，如 touch index.html</li>
+<li>cat 查看文件全部内容，如 cat index.html</li>
+<li>more/less 查看文件，如more /etc/passwd、less /etc/passwd</li>
+<li>rm (remove) 删除文件，如 rm index.html、rm -rf  blog</li>
+<li>rmdir (Remove Directory) 删除文件夹，只能删除空文件夹，不常用</li>
+<li>mv (move) 移动文件或重命名，如 mv index.html ./demo/index.html</li>
+<li>cp (copy) 复制文件，cp index.html ./demo/index.html</li>
+<li>tab 自动补全，连按两次会将所有匹配内容显示出来</li>
+<li><blockquote>
+<p>和 &gt;&gt;重定向，如echo hello world! &gt; README.md，&gt;覆盖 &gt;&gt;追加</p>
+</blockquote>
+</li>
+<li>| 管道符可以将多个命令连接使用，上一次（命令）的执行结果当成下一次（命令）的参数。</li>
+<li>grep 匹配内容，一般结合管道符使用</li>
+</ul>
+<hr>
+<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><p>如同Windows下的记事本，vi编辑器是Linux下的标配，通过它我们可以创建、编辑文件。它是一个随系统一起安装的文本编辑软件。</p>
+<ol>
+<li><p>三种模式<br>vi编辑器提供了3种模式，分别是命令模式、插入模式、底行模式，每种模式下用户所能进行的操作是不一样的。<br>3种模式的切换如下图所示：<br><img src="./img/shell.png" alt="shell"><br>通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切回到命令模式（按ESC键）</p>
+</li>
+<li><p>使用vi编辑器</p>
+<ul>
+<li>a) 打开/创建文件， vi 文件路径</li>
+<li>b) 底行模式 :w保存，:w filenme另存为</li>
+<li>c) 底行模式 :q退出</li>
+<li>d) 底行模式 :wq保存并退出</li>
+<li>e) 底行模式 :e! 撤销更改，返回到上一次保存的状态</li>
+<li>f) 底行模式 :q! 不保存强制退出</li>
+<li>g) 底行模式 :set nu 设置行号</li>
+<li>h) 命令模式 ZZ（大写）保存并退出</li>
+<li>i) 命令模式 u辙销操作，可多次使用</li>
+<li>j) 命令模式 dd删除当前行</li>
+<li>k) 命令模式 yy复制当前行</li>
+<li>l) 命令模式 p 粘贴内容</li>
+<li>m) 命令模式 ctrl+f向前翻页</li>
+<li>n) 命令模式 ctrl+b向后翻页</li>
+<li>o) 命令模式 i进入编辑模式，当前光标处插入</li>
+<li>p) 命令模式 a进入编辑模式，当前光标后插入</li>
+<li>q) 命令模式 A进入编辑模式，光标移动到行尾</li>
+<li>r) 命令模式 o进入编辑模式，当前行下面插入新行</li>
+<li>s) 命令模式 O进入编辑模式，当前行上面插入新行</li>
+</ul>
+</li>
+</ol>
+<p>当处在编辑模式时，与Windows记事本的使用相似。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/08/02/Shell和vi/" class="archive-article-date">
+  	<time datetime="2016-08-02T05:37:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-02</time>
+</a>
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/14/文件操作的应用-我的相册(1)/" class="archive-article-date">
-  	<time datetime="2016-07-14T02:05:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/14/文件操作的应用-我的相册(1)/">文件操作的应用-我的相册 (1)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/12/关于url在浏览器和服务器中传输格式/" class="archive-article-date">
-  	<time datetime="2016-07-12T12:27:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/12/关于url在浏览器和服务器中传输格式/">关于url在浏览器和服务器中传输格式</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/08/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/14/文件操作的应用-我的相册(1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">文件操作的应用-我的相册 (1)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/11/Node中操作文件的路径问题/" class="archive-article-date">
-  	<time datetime="2016-07-11T10:18:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/11/Node中操作文件的路径问题/">Node中操作文件的路径问题</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/10/文件操作/" class="archive-article-date">
-  	<time datetime="2016-07-10T05:15:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/10/文件操作/">文件操作</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/10/在 Express 中使用 ejs 模板引擎/" class="archive-article-date">
-  	<time datetime="2016-07-10T05:15:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/10/在 Express 中使用 ejs 模板引擎/">在 Express 中使用 ejs 模板引擎</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/09/xtemplate的使用/" class="archive-article-date">
-  	<time datetime="2016-07-09T03:42:59.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/09/xtemplate的使用/">xtemplate的使用.md</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
 
 
       </div>
@@ -341,8 +317,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
