@@ -261,11 +261,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h2><p>在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。</p>
-<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><ol>
-<li>图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。</li>
-<li>命令行shell：通过键盘输入特定命令的方式，调用相应的应用程序，如windows系统的cmd.exe、Windows PowerShell，Linux系统的Bourne shell ( sh)、Bourne Again shell ( bash)等。</li>
-<li>认识bash这个shell<br>在window系统下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令。<br>各个 shell 的功能都差不多， Linux 默认使用 bash ，以下是bash的使用。</li>
-</ol>
+<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><p>1.图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。<br>2.命令行shell：通过键盘输入特定命令的方式，调用相应的应用程序，如windows系统的cmd.exe、Windows PowerShell，Linux系统的Bourne shell ( sh)、Bourne Again shell ( bash)等。<br>3.认识bash这个shell<br>在window系统下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令。<br>各个 shell 的功能都差不多， Linux 默认使用 bash ，以下是bash的使用。</p>
 <p><code>3.1 bash命令格式</code><br>命令 [-options]  [参数]，如：tar  zxvf  demo.tar.gz<br>查看帮助：命令 –help</p>
 <p><code>3.2 bash常见命令</code></p>
 <ul>
@@ -281,10 +277,7 @@
 <li>mv (move) 移动文件或重命名，如 mv index.html ./demo/index.html</li>
 <li>cp (copy) 复制文件，cp index.html ./demo/index.html</li>
 <li>tab 自动补全，连按两次会将所有匹配内容显示出来</li>
-<li><blockquote>
-<p>和 &gt;&gt;重定向，如echo hello world! &gt; README.md，&gt;覆盖 &gt;&gt;追加</p>
-</blockquote>
-</li>
+<li><code>&gt; 和 &gt;&gt;</code>重定向，如echo hello world! &gt; README.md，&gt;覆盖 &gt;&gt;追加</li>
 <li>| 管道符可以将多个命令连接使用，上一次（命令）的执行结果当成下一次（命令）的参数。</li>
 <li>grep 匹配内容，一般结合管道符使用</li>
 </ul>
@@ -853,6 +846,102 @@ node 执行： C:\Users\iroc&gt; node .\Desktop\code\02_文件路径.js
       
       <a href="/2016/07/09/xtemplate的使用/" class="archive-article-date">
   	<time datetime="2016-07-09T03:42:59.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Bower前端包管理工具使用介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/04/Bower前端包管理工具使用介绍/">Bower前端包管理工具使用介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h1><p><img src="./img/bower-logo.png" alt="bower-logo" width="300"></p>
+<p><a href="https://bower.io/" target="_blank" rel="external">Bower</a> 是一个针对浏览器端的包管理工具。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Bower基于node.js，所以安装之前，必须先确保已安装node.js：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<p>使用 Bower 下载包的时候，也可以通过项目的 github 仓库地址进行下载安装，<br>所以 Bower 也依赖于 git 环境，安装前请确认是否有 git 环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git --version</div></pre></td></tr></table></figure>
+<p>确认有了 Node 和 git 两个环境之后，就可以使用 npm 安装 bower 了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --global bower</div></pre></td></tr></table></figure>
+<p>安装成功以后，可以通过输入 <code>bower help</code> 命令查看 bower 的使用帮助：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower <span class="built_in">help</span></div></pre></td></tr></table></figure>
+<p>下面的命令可以更新或卸载 Bower：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 重新安装就是更新，或者使用 npm update --global bower</span></div><div class="line">$ npm install --global bower</div><div class="line"><span class="comment"># 卸载</span></div><div class="line">$ npm uninstall --global bower</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="初始化-bower-json-文件"><a href="#初始化-bower-json-文件" class="headerlink" title="初始化 bower.json 文件"></a>初始化 <code>bower.json</code> 文件</h3><p>在项目根目录下，运行下面的命令，进行初始化：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower init</div></pre></td></tr></table></figure>
+<p>通过回答几个问题，就会自动生成 <code>bower.json</code> 文件。<br>这是bower管理工具的配置文件，下面是一个例子：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"docs"</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">"bower包管理工具演示"</span>,</div><div class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="attr">"authors"</span>: [</div><div class="line">    <span class="string">"lpz &lt;mail@lipengzhou.com&gt; (http://www.lipengzhou.com/)"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"license"</span>: <span class="string">"MIT"</span>,</div><div class="line">  <span class="attr">"homepage"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"ignore"</span>: [</div><div class="line">  ],</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="安装、更新、卸载"><a href="#安装、更新、卸载" class="headerlink" title="安装、更新、卸载"></a>安装、更新、卸载</h3><p>安装之前可以通过：<a href="https://bower.io/search/" target="_blank" rel="external">https://bower.io/search/</a> 在线搜索，搜索可用的包。</p>
+<p>bower install 命令用于安装某个库，需要指明库的名字:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install [--save] 包名</div></pre></td></tr></table></figure>
+<p>Bower会使用库的名字，去在线索引中搜索该库的网址。<br>某些情况下，如果一个库很新，可能需要我们手动指定该库的网址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bower install [--save] https://github.com/lepture/editor.git</div><div class="line">$ bower install [--save] https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js</div></pre></td></tr></table></figure>
+<p>上面的命令说明，指定的网址可以是 github 地址、http 网址等。</p>
+<p>Bower 默认会下载到当前项目根路径下的 <code>bower_components</code> 目录。</p>
+<p>如果某个库依赖另一个库，安装时默认将所依赖的库一起安装。<br>比如，bootstrap 依赖 jQuery，安装时会连 jQuery 一起安装。</p>
+<p>默认情况下，会安装该库的最新版本，但是也可以手动指定版本号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install jquery<span class="comment">#1.12.1</span></div></pre></td></tr></table></figure>
+<p>bower update 用于更新一个库，将其更新为最新版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower update jquery</div></pre></td></tr></table></figure>
+<p>如果不给出库名，则更新所有库。</p>
+<p>卸载指定库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower uninstall [--save] 包名</div></pre></td></tr></table></figure>
+<p>注意，默认情况下会连所依赖的库一起卸载。<br>比如，bootstrap 依赖 jquery，卸载时会连 jquery 一起卸载，除非还有别的库依赖 jquery。</p>
+<h3 id="缓存和离线"><a href="#缓存和离线" class="headerlink" title="缓存和离线"></a>缓存和离线</h3><p>查看所有缓存包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower cache list</div></pre></td></tr></table></figure>
+<p>从缓存安装指定包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install [--save] 包名 --offline</div></pre></td></tr></table></figure>
+<p>清除缓存中指定包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower cache clean 包名</div></pre></td></tr></table></figure>
+<p>清除缓存中所有的包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower cache clean list</div></pre></td></tr></table></figure>
+<h3 id="查看通过-bower-安装的依赖"><a href="#查看通过-bower-安装的依赖" class="headerlink" title="查看通过 bower 安装的依赖"></a>查看通过 bower 安装的依赖</h3><p>bower list或bower ls命令，用于列出项目所使用的所有库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ bower list</div><div class="line"><span class="comment"># 或者</span></div><div class="line">$ bower ls</div></pre></td></tr></table></figure>
+<h2 id="配置文件-bowerrc"><a href="#配置文件-bowerrc" class="headerlink" title="配置文件 .bowerrc"></a>配置文件 <code>.bowerrc</code></h2><p>项目根目录下的 <code>.bowerrc</code> 文件是 Bower 的配置文件，<br>可以用来配置使用 Bower 安装包的指定目录等信息，例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"directory"</span>: <span class="string">"js/vender"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>只要经过上了上面的配置，则安装包的时候，会将依赖项放到配置的路径中。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><ul>
+<li><a href="https://bower.io/" target="_blank" rel="external">Bower A package manager for the web</a></li>
+<li><a href="http://javascript.ruanyifeng.com/tool/bower.html" target="_blank" rel="external">Bower: 客户端库管理工具</a></li>
+<li><a href="http://www.html-js.com/article/Learn-JavaScript-learning-Bower-frontend-development-package-management-tools" target="_blank" rel="external">学习Bower – 前端开发包管理工具</a></li>
+<li><a href="https://segmentfault.com/a/1190000002971135" target="_blank" rel="external">bower简明入门教程</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/08/04/Bower前端包管理工具使用介绍/" class="archive-article-date">
+  	<time datetime="2015-08-04T05:35:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-08-04</time>
 </a>
       
       

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>Bower前端包管理工具使用介绍 | Tiffany&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bower
+Bower 是一个针对浏览器端的包管理工具。
+安装Bower基于node.js，所以安装之前，必须先确保已安装node.js：
+1$ node -v
+使用 Bower 下载包的时候，也可以通过项目的 github 仓库地址进行下载安装，所以 Bower 也依赖于 git 环境，安装前请确认是否有 git 环境：
+1$ git --version
+确认有了 Node 和 git 两个环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bower前端包管理工具使用介绍">
+<meta property="og:url" content="http://yoursite.com/2015/08/04/Bower前端包管理工具使用介绍/index.html">
+<meta property="og:site_name" content="Tiffany's Blog">
+<meta property="og:description" content="Bower
+Bower 是一个针对浏览器端的包管理工具。
+安装Bower基于node.js，所以安装之前，必须先确保已安装node.js：
+1$ node -v
+使用 Bower 下载包的时候，也可以通过项目的 github 仓库地址进行下载安装，所以 Bower 也依赖于 git 环境，安装前请确认是否有 git 环境：
+1$ git --version
+确认有了 Node 和 git 两个环境">
+<meta property="og:image" content="http://yoursite.com/./img/bower-logo.png">
+<meta property="og:updated_time" content="2016-12-04T05:36:44.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bower前端包管理工具使用介绍">
+<meta name="twitter:description" content="Bower
+Bower 是一个针对浏览器端的包管理工具。
+安装Bower基于node.js，所以安装之前，必须先确保已安装node.js：
+1$ node -v
+使用 Bower 下载包的时候，也可以通过项目的 github 仓库地址进行下载安装，所以 Bower 也依赖于 git 环境，安装前请确认是否有 git 环境：
+1$ git --version
+确认有了 Node 和 git 两个环境">
+<meta name="twitter:image" content="http://yoursite.com/./img/bower-logo.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Tiffany&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Tiffany</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">The difference between ordinary and extraordinary is that little extra.</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Tiffany</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Tiffany</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">The difference between ordinary and extraordinary is that little extra.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Bower前端包管理工具使用介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Bower前端包管理工具使用介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h1><p><img src="./img/bower-logo.png" alt="bower-logo" width="300"></p>
+<p><a href="https://bower.io/" target="_blank" rel="external">Bower</a> 是一个针对浏览器端的包管理工具。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Bower基于node.js，所以安装之前，必须先确保已安装node.js：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<p>使用 Bower 下载包的时候，也可以通过项目的 github 仓库地址进行下载安装，<br>所以 Bower 也依赖于 git 环境，安装前请确认是否有 git 环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git --version</div></pre></td></tr></table></figure>
+<p>确认有了 Node 和 git 两个环境之后，就可以使用 npm 安装 bower 了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --global bower</div></pre></td></tr></table></figure>
+<p>安装成功以后，可以通过输入 <code>bower help</code> 命令查看 bower 的使用帮助：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower <span class="built_in">help</span></div></pre></td></tr></table></figure>
+<p>下面的命令可以更新或卸载 Bower：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 重新安装就是更新，或者使用 npm update --global bower</span></div><div class="line">$ npm install --global bower</div><div class="line"><span class="comment"># 卸载</span></div><div class="line">$ npm uninstall --global bower</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="初始化-bower-json-文件"><a href="#初始化-bower-json-文件" class="headerlink" title="初始化 bower.json 文件"></a>初始化 <code>bower.json</code> 文件</h3><p>在项目根目录下，运行下面的命令，进行初始化：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower init</div></pre></td></tr></table></figure>
+<p>通过回答几个问题，就会自动生成 <code>bower.json</code> 文件。<br>这是bower管理工具的配置文件，下面是一个例子：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"docs"</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">"bower包管理工具演示"</span>,</div><div class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="attr">"authors"</span>: [</div><div class="line">    <span class="string">"lpz &lt;mail@lipengzhou.com&gt; (http://www.lipengzhou.com/)"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"license"</span>: <span class="string">"MIT"</span>,</div><div class="line">  <span class="attr">"homepage"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"ignore"</span>: [</div><div class="line">  ],</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="安装、更新、卸载"><a href="#安装、更新、卸载" class="headerlink" title="安装、更新、卸载"></a>安装、更新、卸载</h3><p>安装之前可以通过：<a href="https://bower.io/search/" target="_blank" rel="external">https://bower.io/search/</a> 在线搜索，搜索可用的包。</p>
+<p>bower install 命令用于安装某个库，需要指明库的名字:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install [--save] 包名</div></pre></td></tr></table></figure>
+<p>Bower会使用库的名字，去在线索引中搜索该库的网址。<br>某些情况下，如果一个库很新，可能需要我们手动指定该库的网址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bower install [--save] https://github.com/lepture/editor.git</div><div class="line">$ bower install [--save] https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js</div></pre></td></tr></table></figure>
+<p>上面的命令说明，指定的网址可以是 github 地址、http 网址等。</p>
+<p>Bower 默认会下载到当前项目根路径下的 <code>bower_components</code> 目录。</p>
+<p>如果某个库依赖另一个库，安装时默认将所依赖的库一起安装。<br>比如，bootstrap 依赖 jQuery，安装时会连 jQuery 一起安装。</p>
+<p>默认情况下，会安装该库的最新版本，但是也可以手动指定版本号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install jquery<span class="comment">#1.12.1</span></div></pre></td></tr></table></figure>
+<p>bower update 用于更新一个库，将其更新为最新版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower update jquery</div></pre></td></tr></table></figure>
+<p>如果不给出库名，则更新所有库。</p>
+<p>卸载指定库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower uninstall [--save] 包名</div></pre></td></tr></table></figure>
+<p>注意，默认情况下会连所依赖的库一起卸载。<br>比如，bootstrap 依赖 jquery，卸载时会连 jquery 一起卸载，除非还有别的库依赖 jquery。</p>
+<h3 id="缓存和离线"><a href="#缓存和离线" class="headerlink" title="缓存和离线"></a>缓存和离线</h3><p>查看所有缓存包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower cache list</div></pre></td></tr></table></figure>
+<p>从缓存安装指定包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install [--save] 包名 --offline</div></pre></td></tr></table></figure>
+<p>清除缓存中指定包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower cache clean 包名</div></pre></td></tr></table></figure>
+<p>清除缓存中所有的包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower cache clean list</div></pre></td></tr></table></figure>
+<h3 id="查看通过-bower-安装的依赖"><a href="#查看通过-bower-安装的依赖" class="headerlink" title="查看通过 bower 安装的依赖"></a>查看通过 bower 安装的依赖</h3><p>bower list或bower ls命令，用于列出项目所使用的所有库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ bower list</div><div class="line"><span class="comment"># 或者</span></div><div class="line">$ bower ls</div></pre></td></tr></table></figure>
+<h2 id="配置文件-bowerrc"><a href="#配置文件-bowerrc" class="headerlink" title="配置文件 .bowerrc"></a>配置文件 <code>.bowerrc</code></h2><p>项目根目录下的 <code>.bowerrc</code> 文件是 Bower 的配置文件，<br>可以用来配置使用 Bower 安装包的指定目录等信息，例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"directory"</span>: <span class="string">"js/vender"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>只要经过上了上面的配置，则安装包的时候，会将依赖项放到配置的路径中。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><ul>
+<li><a href="https://bower.io/" target="_blank" rel="external">Bower A package manager for the web</a></li>
+<li><a href="http://javascript.ruanyifeng.com/tool/bower.html" target="_blank" rel="external">Bower: 客户端库管理工具</a></li>
+<li><a href="http://www.html-js.com/article/Learn-JavaScript-learning-Bower-frontend-development-package-management-tools" target="_blank" rel="external">学习Bower – 前端开发包管理工具</a></li>
+<li><a href="https://segmentfault.com/a/1190000002971135" target="_blank" rel="external">bower简明入门教程</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/08/04/Bower前端包管理工具使用介绍/" class="archive-article-date">
+  	<time datetime="2015-08-04T05:35:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-08-04</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/07/09/xtemplate的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          xtemplate的使用.md
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Tiffany
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
