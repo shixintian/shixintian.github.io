@@ -19,7 +19,7 @@
 注意：通过字面量创建的对象在调用属性和方法时会被对象包装器暂时包装成一个对象，具有对象的性质。如
 123var str=&amp;quot;我不是一个真的对象&amp;quot;;alert(str.length);     //str被暂时包装成一个String对象，">
 <meta property="og:image" content="http://yoursite.com/uploads/snow.jpg">
-<meta property="og:updated_time" content="2016-12-18T07:38:57.198Z">
+<meta property="og:updated_time" content="2016-12-18T09:20:10.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js内置对象总结">
 <meta name="twitter:description" content="在js里，一切皆为或者皆可以被用作对象。可通过new一个对象或者直接以字面量形式创建变量（如var i=”aaa”)，所有变量都有对象的性质。
@@ -205,7 +205,7 @@
 <li>String</li>
 </ol>
 <p>属性:<br>constructor 所建立对象的函数参考<br>prototype    能够为对象加入的属性和方法<br>length      返回字符串的字符长度</p>
-<p>方法(20):<br>anchor(“name”)用来把字符串转换为HTML锚点标记内(<a name="">)<br>big()      把字符串中的文本变成大字体(<big>)<br>blink()     把字符串中的文本变成闪烁字体(<blink>)<br>bold()      把字符串中的文本变成黑字体(<b>)<br>fixed()     把字符串中的文本变成固定间距字体,即电报形式(<tt>)<br>fontcolor(color)设置字符串中文本的颜色(<font color="">)<br>Fontsize(size) 把字符串中的文本变成指定大小(<fontsize=>)<br>italics()    把字符串中的文本变成斜字体(<i>)<br>Link(url)用来把字符串转换-HTML链接标记中(<a href="">)<br>small()     把字符串中的文本变成小字体(<small>)<br>strike()     把字符串中的文本变成划掉字体(<strike>)<br>sub()      把字符串中的文本变成下标(subscript)字体((SUB&gt;)<br>sup()      把字符串中的文本变成上标(superscript)字体(<sup>)</sup></strike></small></a></i></fontsize=></font></tt></b></blink></big></a></p>
+<p>方法(20):<br>anchor(“name”)用来把字符串转换为HTML锚点标记内(<code>&lt;A NAME=&gt;</code>)<br>big()      把字符串中的文本变成大字体(<big>)<br>blink()     把字符串中的文本变成闪烁字体(<blink>)<br>bold()      把字符串中的文本变成黑字体(<b>)<br>fixed()     把字符串中的文本变成固定间距字体,即电报形式(<tt>)<br>fontcolor(color)设置字符串中文本的颜色(<font color="">)<br>Fontsize(size) 把字符串中的文本变成指定大小(<fontsize=>)<br>italics()    把字符串中的文本变成斜字体(<i>)<br>Link(url)用来把字符串转换-HTML链接标记中(<a href="">)<br>small()     把字符串中的文本变成小字体(<small>)<br>strike()     把字符串中的文本变成划掉字体(<strike>)<br>sub()      把字符串中的文本变成下标(subscript)字体((<code>&lt;SUB&gt;</code>))<br>sup()      把字符串中的文本变成上标(superscript)字体(<code>&lt;SUP&gt;</code>)</strike></small></a></i></fontsize=></font></tt></b></blink></big></p>
 <p>charAt(index) 返回指定索引处的字符<br>charCodeAt(index)返回一个整数,该整数表示String对象中指定位置处的字符的Unicode编码<br>concat(string2)连接两条或多条字符串<br>fromCharCode(num1, num2, …, numN)获取指定的Unicode值并返回字符串<br>indexOf(searchString, startIndex) 返回字符串中第一个出现指定字符串的位置<br>lastlndexOf(searchString, startIndex) 返回字符串中最后一个出现指定字符串的位置<br>match(regex) 在字符串中查找指定值<br>replace(regex, newString)将字符串中的某些字符替换成其它字符<br>search(regex) 针对某执行值对字符串进行查找<br>slice(startIndex, endIndex)将部分字符抽出并在新的字符串中返回剩余部分<br>split(delimiter)将字符串分配为数组<br>substr(startIndex, length) 从startIndex取,取length个字符<br>substring(startIndex, endIndex) 从startIndex和endIndex之间的字符,不包括endIndex</p>
 <p>toLowerCase() 把字符串中的文本变成小写<br>toUpperCase() 把字符串中的文本变成大写<br>toSource()    显示对象的源代码<br>valueOf()    返回字符串对象的原始值</p>
 <ol>
